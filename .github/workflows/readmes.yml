@@ -2,23 +2,19 @@
 
 name: Generate READMEs
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+on: [pull_request_target]
 env:
   DENO_DIR: deno_cache
 
 jobs:
-  test:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Git Checkout Deno Module
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
       - name: Set up Deno
         uses: denoland/setup-deno@v1
@@ -29,6 +25,8 @@ jobs:
         with:
           key: ${{ hashFiles('lock.json') }}
           path: ${{ env.DENO_DIR }}
+      - name: Update authors.yml
+        run: deno run --allow-read --allow-write --allow-net generateAuthors.ts --base ${{ github.event.pull_request.base.repo.full_name }} --num ${{ github.event.pull_request.number }} --name ${{ github.event.pull_request.user.login }}
       - name: Update READMEs
         run: deno run --allow-read --allow-write generate.tsx
       - name: Push changes
