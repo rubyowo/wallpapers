@@ -29,7 +29,7 @@ To maintain quality of the wallpapers in the repository, we have a few guideline
   o_img_name.jpg # other (in case wallpapers is a mix of other colourschemes as well) 
   ```
 - Do not open an issue with your images. To get images added, please make a pull request against the repository. 
-- You need also need to add your information in the `.authors.yml` file in whichever folder you are adding your image. Example: 
+- You also need to add your information in the `.authors.yml` file in whichever folder you are adding your image. Example: 
   If you are adding your wallpaper in the `misc/` folder, edit `misc/.authors.yml` in the following format: 
   ```yml
   - author_name: your_github_username
