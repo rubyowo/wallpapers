@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="minimalistic/ma_cat_line_red.png" style="border-radius:2%"/>
+  <img src="https://cdn.discordapp.com/attachments/1020298612464431136/1084320714695397457/output.gif" style="border-radius:2%"/>
 </p>
 
 ## 🐱 Contribution guidelines 
